@@ -14,8 +14,7 @@ This docker container can be used to quickly get a
 
 This container has the following WeeWX extensions pre-installed:
 
-- [interceptor](https://github.com/matthewwall/weewx-interceptor)
-- [mqtt](https://github.com/weewx/weewx/wiki/mqtt)
+- [GW1000](https://github.com/gjr80/weewx-gw1000)
 
 ## Running ##
 
@@ -57,8 +56,6 @@ services:
       - TIMEZONE=UTC
       - WEEWX_UID=weewx
       - WEEWX_GID=dialout
-    devices:
-      - "/dev/ttyUSB0:/dev/ttyUSB0"
 ```
 
 1. Create a directory on the host to store the configuration and database files:
