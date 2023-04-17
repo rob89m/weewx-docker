@@ -21,10 +21,10 @@ This container has the following WeeWX extensions pre-installed:
 
 ### Running with Docker ###
 
-Pull `felddy/weewx` from the Docker repository:
+Pull `rob89m/weewx` from the Docker repository:
 
 ```console
-docker pull felddy/weewx
+docker pull rob89m/weewx
 ```
 
 ### Run ###
@@ -46,7 +46,7 @@ volumes:
 
 services:
   weewx:
-    image: felddy/weewx
+    image: rob89m/weewx
     init: true
     restart: "yes"
     volumes:
@@ -135,8 +135,8 @@ Build the image locally using this git repository as the [build context](https:/
 
 ```console
 docker build \
-  --tag felddy/weewx:4.8.0 \
-  https://github.com/felddy/weewx-docker.git#develop
+  --tag rob89m/weewx:4.8.0 \
+  https://github.com/rob89m/weewx-docker.git#develop
 ```
 
 ## Cross-platform builds ##
@@ -149,7 +149,7 @@ Docker:
    or the command line:
 
     ```console
-    git clone https://github.com/felddy/weewx-docker.git
+    git clone https://github.com/rob89m/weewx-docker.git
     cd weewx-docker
     ```
 
@@ -159,7 +159,7 @@ Docker:
     docker buildx build \
       --platform linux/amd64 \
       --output type=docker \
-      --tag felddy/weewx:4.8.0 .
+      --tag rob89m/weewx:4.8.0 .
     ```
 
 ## Debugging ##
