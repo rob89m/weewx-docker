@@ -35,8 +35,7 @@ COPY src/_version.py ./src/_version.py
 
 # Download sources and verify hashes
 RUN wget -O "${ARCHIVE}" "https://weewx.com/downloads/released_versions/${ARCHIVE}"
-RUN wget -O weewx-mqtt.zip https://github.com/matthewwall/weewx-mqtt/archive/master.zip
-RUN wget -O weewx-interceptor.zip https://github.com/matthewwall/weewx-interceptor/archive/master.zip
+RUN wget -O weewx-gw1000.zip https://github.com/gjr80/weewx-gw1000/archive/master.zip
 RUN sha256sum -c < hashes
 
 # WeeWX setup
@@ -49,8 +48,7 @@ RUN pip install --no-cache --requirement requirements.txt
 
 WORKDIR /root
 
-RUN bin/wee_extension --install /tmp/weewx-mqtt.zip
-RUN bin/wee_extension --install /tmp/weewx-interceptor.zip
+RUN bin/wee_extension --install /tmp/weewx-gw1000.zip
 COPY src/entrypoint.sh src/_version.py ./
 
 FROM python:${PYTHON_VERSION}-slim-bullseye as final-stage
@@ -62,8 +60,8 @@ ARG WEEWX_UID
 # For a list of pre-defined annotation keys and value types see:
 # https://github.com/opencontainers/image-spec/blob/master/annotations.md
 # Note: Additional labels are added by the build workflow.
-LABEL org.opencontainers.image.authors="markf+github@geekpad.com"
-LABEL org.opencontainers.image.vendor="Geekpad"
+LABEL org.opencontainers.image.authors="rob89m@outlook.com"
+LABEL org.opencontainers.image.vendor="Robert"
 LABEL com.weewx.version=${WEEWX_VERSION}
 
 RUN addgroup --system --gid ${WEEWX_UID} weewx \
